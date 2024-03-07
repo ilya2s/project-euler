@@ -9,51 +9,47 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 ## My Solution
 Let's try to find the sum of the multiples of 3 and 5 that are below 100.
 
-1. Let's try with 5:
-$s = 5 + 10 + 15 + ... + 85 + 90 + 95$
-s = 5 + (5 + 5) + (5 + 10) + ... + (95 - 10) + (95 - 5) + 95
-s = 5 + (5 + 5) + (5 + 2*5) + ... + (95 - 2*5) + (95 - 5) + 95
+1. Let's try with 5:\
+$s = 5 + 10 + 15 + ... + 85 + 90 + 95$\
+$s = 5 + (5 + 5) + (5 + 10) + ... + (95 - 10) + (95 - 5) + 95$\
+$s = 5 + (5 + 5) + (5 + 2 \times 5) + ... + (95 - 2 \times 5) + (95 - 5) + 95$
 
-We can generalize it to:
-s = a + (a + d) + (a + 2d) + ... + (l - 2d) + (l - d) + l
-
+2. We can generalize it to:\
+$s = a + (a + d) + (a + 2d) + ... + (l - 2d) + (l - d) + l$\
 Where:
-(a) -> first term
-(d) -> difference between each term
-(l) -> last term
+    - $a$ is the first term
+    - $d$ is the difference between each term
+    - $l$ is the last term
 
-then you can use the reverse trick:
-s = l + (l - d) + (l - 2d) + ... + (a + 2d) + (a + d) + a
+3. We can use the reverse trick:\
+$s = l + (l - d) + (l - 2d) + ... + (a + 2d) + (a + d) + a$
 
-we then have two sums:
-s = a + (a + d) + (a + 2d) + ... + (l - 2d) + (l - d) + l
-s = l + (l - d) + (l - 2d) + ... + (a + 2d) + (a + d) + a
+4. we then have two sums:\
+$s = a + (a + d) + (a + 2d) + ... + (l - 2d) + (l - d) + l$\
+$s = l + (l - d) + (l - 2d) + ... + (a + 2d) + (a + d) + a$
 
-We can add them together and we get:
-2s = (a + l) + (a + l) + (a + l) + ... + (a + l) + (a + l) + (a + l)
+5. We can add them together:\
+$2s = (a + l) + (a + l) + (a + l) + ... + (a + l) + (a + l) + (a + l)$
 
-We have n (number of terms) times (a + l)
-2s = n (a + l)
-s = n (a + l) / 2
+6. We have $n$ (number of terms) times $(a + l)$:\
+$2s = n (a + l)$\
+$s = n (a + l) / 2$
 
-(a) is the first term which is the divisor (in our example 5)
-(n) is the number of terms that we can calculate by limit - 1 / a (integer division will round it to the smallest int) (in our example 19)
-(l) is n * a (in our example 19 * 5 = 95)
+7. To find variables:
+    - $a$ is the first term which is the divisor (in our example 5)
+    - $n$ is the number of terms that we can calculate by limit - 1 / a (integer division will round it to the smallest int) (in our example 19)
+    - $l$ is $n \times a$ (in our example 19 * 5 = 95)
 
-This formula gives us the sum of multiples of a that are under a certain limit.
-s(5) = 950
-s(3) = 1683
+8. This formula gives us the sum of multiples of a that are under a certain limit:\
+$s(5) = 950$$\
+$s(3) = 1683$\
+$s(5) + s(3) = 2633$ (Which is above the right answer)
 
-s(5) + s(3) = 2633 (Which is above the right answer)
+9. We need to subtract the multiples of 5 AND 3 that are counted twice! (Like 15, 30, 45, ...) to do so we can calculate the sum of the multiples of 15 (3 * 5) and subtract it from the total sum:\
+$s(15) = 315$
 
-We need to subtract the multiples of 5 AND 3 that are counted twice! (Like 15, 30, 45, ...)
-
-for that we can calculate the sum of the multiples of 15 (3 * 5) and subtract it from the total sum.
-
-s(15) = 315
-
-So finally we have:
-s(5) + s(3) - s(3 * 5) = 2318
+10. So finally we have:\
+$s(5) + s(3) - s(3 * 5) = 2318$
 
 My solution in C:
 ```C
