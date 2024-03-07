@@ -10,7 +10,7 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 Let's try to find the sum of the multiples of 3 and 5 that are below 100.
 
 1. Let's try with 5:
-s = 5 + 10 + 15 + ... + 85 + 90 + 95
+$s = 5 + 10 + 15 + ... + 85 + 90 + 95$
 s = 5 + (5 + 5) + (5 + 10) + ... + (95 - 10) + (95 - 5) + 95
 s = 5 + (5 + 5) + (5 + 2*5) + ... + (95 - 2*5) + (95 - 5) + 95
 
