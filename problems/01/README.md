@@ -41,7 +41,7 @@ $s = n (a + l) / 2$
     - $l$ is $n \times a$ (in our example 19 * 5 = 95)
 
 8. This formula gives us the sum of multiples of a that are under a certain limit:\
-$s(5) = 950$$\
+$s(5) = 950$\
 $s(3) = 1683$\
 $s(5) + s(3) = 2633$ (Which is above the right answer)
 
